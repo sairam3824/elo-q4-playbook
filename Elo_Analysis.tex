@@ -1,0 +1,1688 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={What Kind of Payment Network Are We?},
+  pdfauthor={Team ERROR 404 \textbar{} Head of Analytics, Elo \textbar{} Prepared for the Q4 Strategy Offsite},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{What Kind of Payment Network Are We?}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A portfolio-level review of the Elo card ledger, merchant base
+and promotions programme}
+\author{Team ERROR 404 \textbar{} Head of Analytics, Elo \textbar{}
+Prepared for the Q4 Strategy Offsite}
+\date{28 September 2026}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{The brief, and how we chose to answer
+it}\label{the-brief-and-how-we-chose-to-answer-it}
+
+The Board asked one question: \textbf{based on everything in this data,
+what kind of payment network are we, and what should that tell us about
+where to point the promotions programme in Quarter 4?}
+
+That is deliberately not a modelling question. Nobody is asking for an
+uplift score. They are asking for an identity --- and then for the
+operating consequence of that identity. So we structured the work as a
+chain of five questions, each one earning the right to ask the next:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.0769}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2564}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.6667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\#
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Question
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Why it has to come first
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Can we even read the money? & \texttt{purchase\_amount} is
+normalised. Without real currency no finding is presentable to a
+Board. \\
+2 & Who transacts on our cards? & Concentration decides whether
+promotions are a mass-market or a targeted instrument. \\
+3 & How is the network actually used? & Ticket size and instalment
+behaviour \emph{are} the identity answer. \\
+4 & What does the merchant side look like? & Promotions are paid to
+merchants. Their size and health decide the price. \\
+5 & Where does discovery happen? & The new-merchant window is the only
+place in this export where a \emph{new} commercial relationship is
+visible. That is what a promotion is trying to create. \\
+\end{longtable}
+}
+
+The recommendation in Section 9 falls directly out of question 5 crossed
+with question 4.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Data assembly and what we found wrong with
+it}\label{data-assembly-and-what-we-found-wrong-with-it}
+
+Three files were handed over. Before any analysis, we audited them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hist\_raw  }\OtherTok{\textless{}{-}} \FunctionTok{read\_fast}\NormalTok{(}\FunctionTok{file.path}\NormalTok{(DATA\_DIR, }\StringTok{"historical\_transactions\_100k.csv"}\NormalTok{))}
+\NormalTok{new\_raw   }\OtherTok{\textless{}{-}} \FunctionTok{read\_fast}\NormalTok{(}\FunctionTok{file.path}\NormalTok{(DATA\_DIR, }\StringTok{"new\_merchant\_transactions.csv"}\NormalTok{))}
+\NormalTok{merch\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read\_fast}\NormalTok{(}\FunctionTok{file.path}\NormalTok{(DATA\_DIR, }\StringTok{"merchants1.csv"}\NormalTok{))}
+
+\FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{File =} \FunctionTok{c}\NormalTok{(}\StringTok{"historical\_transactions\_100k.csv"}\NormalTok{, }\StringTok{"new\_merchant\_transactions.csv"}\NormalTok{, }\StringTok{"merchants1.csv"}\NormalTok{),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Rows as delivered}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{c}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(hist\_raw), }\FunctionTok{nrow}\NormalTok{(new\_raw), }\FunctionTok{nrow}\NormalTok{(merch\_raw)),}
+  \AttributeTok{Columns =} \FunctionTok{c}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(hist\_raw), }\FunctionTok{ncol}\NormalTok{(new\_raw), }\FunctionTok{ncol}\NormalTok{(merch\_raw)),}
+  \AttributeTok{check.names =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{(}\AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+File & Rows as delivered & Columns \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+historical\_transactions\_100k.csv & 100,000 & 14 \\
+new\_merchant\_transactions.csv & 1,048,575 & 14 \\
+merchants1.csv & 334,696 & 22 \\
+\end{longtable}
+}
+
+\subsection{Three defects worth
+naming}\label{three-defects-worth-naming}
+
+\textbf{One --- the new-merchant file is 90\% empty.} It arrives with
+1,048,575 rows, which is exactly the Excel worksheet limit minus the
+header. Everything past row 100,000 is a row of commas. Any team that
+reported ``1.05 million new-merchant transactions'' to the Board would
+have been wrong by a factor of ten.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filler }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(new\_raw}\SpecialCharTok{$}\NormalTok{card\_id) }\SpecialCharTok{|}\NormalTok{ new\_raw}\SpecialCharTok{$}\NormalTok{card\_id }\SpecialCharTok{==} \StringTok{""}\NormalTok{)}
+\NormalTok{new\_raw }\OtherTok{\textless{}{-}}\NormalTok{ new\_raw[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(new\_raw}\SpecialCharTok{$}\NormalTok{card\_id) }\SpecialCharTok{\&}\NormalTok{ new\_raw}\SpecialCharTok{$}\NormalTok{card\_id }\SpecialCharTok{!=} \StringTok{""}\NormalTok{, ]}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Empty filler rows removed:"}\NormalTok{, }\FunctionTok{format}\NormalTok{(filler, }\AttributeTok{big.mark =} \StringTok{","}\NormalTok{),}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Real new{-}merchant transactions:"}\NormalTok{, }\FunctionTok{format}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(new\_raw), }\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Empty filler rows removed: 948,575 
+## Real new-merchant transactions: 100,000
+\end{verbatim}
+
+\textbf{Two --- the merchant reference file repeats itself.} 63
+\texttt{merchant\_id} values appear twice. Left alone they double-count
+in every supply-side share.
+
+\textbf{Three --- the growth ratios contain literal infinities.} Three
+merchants had zero transactions in their base month, so
+\texttt{avg\_purchases\_lag*} divides by zero.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dup\_merch }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{duplicated}\NormalTok{(merch\_raw}\SpecialCharTok{$}\NormalTok{merchant\_id))}
+\NormalTok{merch }\OtherTok{\textless{}{-}}\NormalTok{ merch\_raw[}\SpecialCharTok{!}\FunctionTok{duplicated}\NormalTok{(merch\_raw}\SpecialCharTok{$}\NormalTok{merchant\_id), ]}
+
+\NormalTok{lag\_cols }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"avg\_sales\_lag3"}\NormalTok{, }\StringTok{"avg\_purchases\_lag3"}\NormalTok{, }\StringTok{"avg\_sales\_lag6"}\NormalTok{,}
+              \StringTok{"avg\_purchases\_lag6"}\NormalTok{, }\StringTok{"avg\_sales\_lag12"}\NormalTok{, }\StringTok{"avg\_purchases\_lag12"}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (cc }\ControlFlowTok{in}\NormalTok{ lag\_cols) merch[[cc]] }\OtherTok{\textless{}{-}} \FunctionTok{suppressWarnings}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(merch[[cc]]))}
+\ControlFlowTok{for}\NormalTok{ (cc }\ControlFlowTok{in} \FunctionTok{c}\NormalTok{(}\StringTok{"subsector\_id"}\NormalTok{, }\StringTok{"state\_id"}\NormalTok{, }\StringTok{"city\_id"}\NormalTok{, }\StringTok{"merchant\_category\_id"}\NormalTok{,}
+             \StringTok{"numerical\_1"}\NormalTok{, }\StringTok{"numerical\_2"}\NormalTok{, }\StringTok{"category\_2"}\NormalTok{,}
+             \StringTok{"active\_months\_lag3"}\NormalTok{, }\StringTok{"active\_months\_lag6"}\NormalTok{, }\StringTok{"active\_months\_lag12"}\NormalTok{))}
+\NormalTok{  merch[[cc]] }\OtherTok{\textless{}{-}} \FunctionTok{suppressWarnings}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(merch[[cc]]))}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Duplicate merchant rows dropped:"}\NormalTok{, dup\_merch,}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Unique merchants:"}\NormalTok{, }\FunctionTok{format}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(merch), }\AttributeTok{big.mark =} \StringTok{","}\NormalTok{),}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Non{-}finite growth ratios:"}\NormalTok{, }\FunctionTok{sum}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.finite}\NormalTok{(merch}\SpecialCharTok{$}\NormalTok{avg\_purchases\_lag3)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Duplicate merchant rows dropped: 63 
+## Unique merchants: 334,633 
+## Non-finite growth ratios: 3
+\end{verbatim}
+
+\subsection{A structural limit we have to be honest
+about}\label{a-structural-limit-we-have-to-be-honest-about}
+
+The two transaction files were sampled independently. The historical
+ledger covers \textbf{463 cards} in depth; the new-merchant window
+covers \textbf{7,530 cards} shallowly; only \textbf{16 cards appear in
+both}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Cards in historical ledger :"}\NormalTok{, }\FunctionTok{n\_distinct}\NormalTok{(hist\_raw}\SpecialCharTok{$}\NormalTok{card\_id),}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Cards in novelty window    :"}\NormalTok{, }\FunctionTok{n\_distinct}\NormalTok{(new\_raw}\SpecialCharTok{$}\NormalTok{card\_id),}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Cards present in both      :"}\NormalTok{,}
+    \FunctionTok{length}\NormalTok{(}\FunctionTok{intersect}\NormalTok{(}\FunctionTok{unique}\NormalTok{(hist\_raw}\SpecialCharTok{$}\NormalTok{card\_id), }\FunctionTok{unique}\NormalTok{(new\_raw}\SpecialCharTok{$}\NormalTok{card\_id))))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Cards in historical ledger : 463 
+## Cards in novelty window    : 7530 
+## Cards present in both      : 16
+\end{verbatim}
+
+So we \textbf{cannot} ask ``did card X change behaviour when it met a
+new merchant''. We can --- and do --- ask the portfolio-level version:
+\emph{how does spending at merchants a card already knows differ from
+spending at merchants it has never visited?} Every novelty finding in
+this document is a comparison of \textbf{two windows of the same
+network}, not a within-card before/after. Stated up front so no one
+over-reads it.
+
+The card-level file described in the data dictionary
+(\texttt{train.csv}, carrying \texttt{first\_active\_month} and the
+loyalty \texttt{target}) was not part of the export. We therefore
+rebuild tenure and value from observed behaviour rather than using the
+supplied loyalty score. Section 10 sets out what that costs us.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{\texorpdfstring{Reading the money: de-normalising
+\texttt{purchase\_amount}}{Reading the money: de-normalising purchase\_amount}}\label{reading-the-money-de-normalising-purchase_amount}
+
+\texttt{purchase\_amount} is a normalised quantity ranging from about
+−0.75 to +11,270. Nobody can take that to a Board. It is, however, an
+\textbf{affine transform} of the real Brazilian Real amount, and an
+affine transform can be recovered.
+
+Two anchors do it. The floor of the distribution must correspond to the
+smallest possible real purchase, and the bulk of a retail ledger must
+land in sensible everyday money. Solving on that basis gives:
+
+\[\text{BRL} = \frac{\texttt{purchase\_amount}}{0.00150265} + 497.06\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{SCALE }\OtherTok{\textless{}{-}} \FloatTok{0.00150265}\NormalTok{; OFFSET }\OtherTok{\textless{}{-}} \FloatTok{497.06}
+\NormalTok{to\_brl }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) x }\SpecialCharTok{/}\NormalTok{ SCALE }\SpecialCharTok{+}\NormalTok{ OFFSET}
+
+\NormalTok{prep\_txn }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(df) \{}
+\NormalTok{  num\_cols }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"purchase\_amount"}\NormalTok{, }\StringTok{"installments"}\NormalTok{, }\StringTok{"month\_lag"}\NormalTok{, }\StringTok{"city\_id"}\NormalTok{,}
+                \StringTok{"state\_id"}\NormalTok{, }\StringTok{"subsector\_id"}\NormalTok{, }\StringTok{"merchant\_category\_id"}\NormalTok{, }\StringTok{"category\_2"}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{ (cc }\ControlFlowTok{in} \FunctionTok{intersect}\NormalTok{(num\_cols, }\FunctionTok{names}\NormalTok{(df)))}
+\NormalTok{    df[[cc]] }\OtherTok{\textless{}{-}} \FunctionTok{suppressWarnings}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(df[[cc]]))}
+\NormalTok{  df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{amount\_brl  =} \FunctionTok{to\_brl}\NormalTok{(purchase\_amount),}
+    \AttributeTok{purchase\_ts =} \FunctionTok{as.POSIXct}\NormalTok{(purchase\_date, }\AttributeTok{format =} \StringTok{"\%d{-}\%m{-}\%Y \%H:\%M"}\NormalTok{, }\AttributeTok{tz =} \StringTok{"UTC"}\NormalTok{),}
+    \AttributeTok{month       =} \FunctionTok{format}\NormalTok{(purchase\_ts, }\StringTok{"\%Y{-}\%m"}\NormalTok{),}
+    \AttributeTok{hour        =} \FunctionTok{as.integer}\NormalTok{(}\FunctionTok{format}\NormalTok{(purchase\_ts, }\StringTok{"\%H"}\NormalTok{)),}
+    \AttributeTok{instal      =} \FunctionTok{ifelse}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(installments) }\SpecialCharTok{|}\NormalTok{ installments }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{, }\ConstantTok{NA\_real\_}\NormalTok{,}
+                         \FunctionTok{as.numeric}\NormalTok{(installments)),}
+    \AttributeTok{instal\_band =} \FunctionTok{cut}\NormalTok{(instal, }\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{999}\NormalTok{),}
+                      \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"0 (lump sum)"}\NormalTok{, }\StringTok{"1 (single)"}\NormalTok{, }\StringTok{"2{-}3"}\NormalTok{, }\StringTok{"4{-}6"}\NormalTok{, }\StringTok{"7{-}12"}\NormalTok{, }\StringTok{"13+"}\NormalTok{)),}
+    \AttributeTok{approved    =}\NormalTok{ authorized\_flag }\SpecialCharTok{==} \StringTok{"Y"}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{hist\_txn }\OtherTok{\textless{}{-}} \FunctionTok{prep\_txn}\NormalTok{(hist\_raw)}
+\NormalTok{new\_txn  }\OtherTok{\textless{}{-}} \FunctionTok{prep\_txn}\NormalTok{(new\_raw)}
+
+\FunctionTok{round}\NormalTok{(}\FunctionTok{quantile}\NormalTok{(hist\_txn}\SpecialCharTok{$}\NormalTok{amount\_brl, }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, .}\DecValTok{01}\NormalTok{, .}\DecValTok{25}\NormalTok{, .}\DecValTok{5}\NormalTok{, .}\DecValTok{75}\NormalTok{, .}\DecValTok{95}\NormalTok{, .}\DecValTok{99}\NormalTok{, }\DecValTok{1}\NormalTok{)), }\DecValTok{2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{as.data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{setNames}\NormalTok{(}\StringTok{"Amount (BRL)"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{(}\AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+& Amount (BRL) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0\% & 0.01 \\
+1\% & 2.78 \\
+25\% & 16.32 \\
+50\% & 34.90 \\
+75\% & 82.62 \\
+95\% & 300.00 \\
+99\% & 1,030.80 \\
+100\% & 7,500,358.32 \\
+\end{longtable}
+}
+
+\textbf{The validation is the distribution itself.} The minimum lands at
+R\$0.01, the median at roughly \textbf{R\$35}, the 75th percentile at
+\textbf{R\$83} and the 99th at about \textbf{R\$1,031}. Not one
+transaction is negative. A wrong constant would have produced negative
+money at the bottom of the ledger, and it does not. From here on, every
+currency figure in this report is real Reais.
+
+\subsection{Trimming the tail}\label{trimming-the-tail}
+
+99 records --- one in a thousand --- reach into the millions of Reais
+and are almost certainly settlement or reversal artefacts rather than
+shopping. One of them alone would move the portfolio average ticket by
+more than every finding in this report combined. We exclude the top
+0.1\% from all value statistics and say so wherever it matters.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{CAP    }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(hist\_txn}\SpecialCharTok{$}\NormalTok{amount\_brl, }\FloatTok{0.999}\NormalTok{)}
+\NormalTok{hist\_w }\OtherTok{\textless{}{-}}\NormalTok{ hist\_txn }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(amount\_brl }\SpecialCharTok{\textless{}=}\NormalTok{ CAP)}
+\NormalTok{new\_w  }\OtherTok{\textless{}{-}}\NormalTok{ new\_txn  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(amount\_brl }\SpecialCharTok{\textless{}=} \FunctionTok{quantile}\NormalTok{(amount\_brl, }\FloatTok{0.999}\NormalTok{))}
+\NormalTok{hist\_ok }\OtherTok{\textless{}{-}}\NormalTok{ hist\_w }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(approved)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Trim threshold:"}\NormalTok{, }\FunctionTok{comma}\NormalTok{(}\FunctionTok{round}\NormalTok{(CAP)), }\StringTok{"BRL | records excluded:"}\NormalTok{,}
+    \FunctionTok{sum}\NormalTok{(hist\_txn}\SpecialCharTok{$}\NormalTok{amount\_brl }\SpecialCharTok{\textgreater{}}\NormalTok{ CAP),}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Mean ticket before trim: R$"}\NormalTok{, }\FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(hist\_txn}\SpecialCharTok{$}\NormalTok{amount\_brl), }\DecValTok{2}\NormalTok{),}
+    \StringTok{" | after trim: R$"}\NormalTok{, }\FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(hist\_w}\SpecialCharTok{$}\NormalTok{amount\_brl), }\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Trim threshold: 4,000 BRL | records excluded: 99 
+## Mean ticket before trim: R$ 272.11  | after trim: R$ 88.24
+\end{verbatim}
+
+The average ticket falls from R\$272 to \textbf{R\$88} once 99 records
+are removed. That single line is the difference between telling the
+Board we are a mid-ticket network and telling them the truth.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Who transacts on our cards?}\label{who-transacts-on-our-cards}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ref\_date }\OtherTok{\textless{}{-}} \FunctionTok{max}\NormalTok{(hist\_ok}\SpecialCharTok{$}\NormalTok{purchase\_ts, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{card }\OtherTok{\textless{}{-}}\NormalTok{ hist\_ok }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(card\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{txns =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{spend =} \FunctionTok{sum}\NormalTok{(amount\_brl), }\AttributeTok{avg\_ticket =} \FunctionTok{mean}\NormalTok{(amount\_brl),}
+            \AttributeTok{merchants =} \FunctionTok{n\_distinct}\NormalTok{(merchant\_id), }\AttributeTok{subsectors =} \FunctionTok{n\_distinct}\NormalTok{(subsector\_id),}
+            \AttributeTok{first\_seen =} \FunctionTok{min}\NormalTok{(purchase\_ts), }\AttributeTok{last\_seen =} \FunctionTok{max}\NormalTok{(purchase\_ts), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{recency\_days  =} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{difftime}\NormalTok{(ref\_date, last\_seen, }\AttributeTok{units =} \StringTok{"days"}\NormalTok{)),}
+         \AttributeTok{active\_months =} \FunctionTok{pmax}\NormalTok{(}\FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{difftime}\NormalTok{(last\_seen, first\_seen, }\AttributeTok{units =} \StringTok{"days"}\NormalTok{)) }\SpecialCharTok{/} \FloatTok{30.44}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+         \AttributeTok{txns\_pm  =}\NormalTok{ txns  }\SpecialCharTok{/}\NormalTok{ active\_months,}
+         \AttributeTok{spend\_pm =}\NormalTok{ spend }\SpecialCharTok{/}\NormalTok{ active\_months) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(hist\_w }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(card\_id) }\SpecialCharTok{\%\textgreater{}\%}
+              \FunctionTok{summarise}\NormalTok{(}\AttributeTok{decline\_rate =} \FunctionTok{mean}\NormalTok{(}\SpecialCharTok{!}\NormalTok{approved), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{), }\AttributeTok{by =} \StringTok{"card\_id"}\NormalTok{)}
+
+\NormalTok{card }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}
+  \AttributeTok{Cards =} \FunctionTok{n}\NormalTok{(),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Median transactions}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{median}\NormalTok{(txns),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Median spend (BRL)}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(}\FunctionTok{median}\NormalTok{(spend)),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Median ticket (BRL)}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(}\FunctionTok{median}\NormalTok{(avg\_ticket), }\DecValTok{2}\NormalTok{),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Median distinct merchants}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{median}\NormalTok{(merchants),}
+  \StringTok{\textasciigrave{}}\AttributeTok{Median decline rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\FunctionTok{median}\NormalTok{(decline\_rate), }\FloatTok{0.1}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{t}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \StringTok{"Value"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+& Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Cards & 463 \\
+Median transactions & 148 \\
+Median spend (BRL) & 10020 \\
+Median ticket (BRL) & 67.38 \\
+Median distinct merchants & 56 \\
+Median decline rate & 6.3\% \\
+\end{longtable}
+}
+
+\subsection{The portfolio is a Pareto, and a steep
+one}\label{the-portfolio-is-a-pareto-and-a-steep-one}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{card\_sorted }\OtherTok{\textless{}{-}}\NormalTok{ card }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(spend)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{rank =} \FunctionTok{row\_number}\NormalTok{(), }\AttributeTok{cum\_share =} \FunctionTok{cumsum}\NormalTok{(spend) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(spend),}
+         \AttributeTok{card\_share =}\NormalTok{ rank }\SpecialCharTok{/} \FunctionTok{n}\NormalTok{())}
+
+\FunctionTok{data.frame}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Top share of cards}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{05}\NormalTok{, .}\DecValTok{10}\NormalTok{, .}\DecValTok{20}\NormalTok{, .}\DecValTok{50}\NormalTok{)),}
+           \StringTok{\textasciigrave{}}\AttributeTok{Share of total spend}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}
+             \FunctionTok{sapply}\NormalTok{(}\FunctionTok{c}\NormalTok{(.}\DecValTok{05}\NormalTok{, .}\DecValTok{10}\NormalTok{, .}\DecValTok{20}\NormalTok{, .}\DecValTok{50}\NormalTok{),}
+                    \ControlFlowTok{function}\NormalTok{(p) card\_sorted}\SpecialCharTok{$}\NormalTok{cum\_share[}\FunctionTok{ceiling}\NormalTok{(p }\SpecialCharTok{*} \FunctionTok{nrow}\NormalTok{(card\_sorted))]), }\FloatTok{0.1}\NormalTok{),}
+           \AttributeTok{check.names =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Top share of cards & Share of total spend \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+5\% & 23.5\% \\
+10\% & 37.5\% \\
+20\% & 57.7\% \\
+50\% & 86.2\% \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(card\_sorted, }\FunctionTok{aes}\NormalTok{(card\_share, cum\_share)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_area}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ PAL[}\DecValTok{3}\NormalTok{], }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{1}\NormalTok{], }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_abline}\NormalTok{(}\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{colour =} \StringTok{"grey60"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dotted"}\NormalTok{, }\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{5}\NormalTok{]) }\SpecialCharTok{+}
+  \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =}\NormalTok{ .}\DecValTok{24}\NormalTok{, }\AttributeTok{y =}\NormalTok{ .}\DecValTok{35}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{0}\NormalTok{, }\AttributeTok{size =} \FloatTok{3.4}\NormalTok{, }\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{5}\NormalTok{],}
+           \AttributeTok{label =} \StringTok{"Top 20\% of cards}\SpecialCharTok{\textbackslash{}n}\StringTok{carry 58\% of spend"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+} \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Spend is owned by a fifth of the portfolio"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Cumulative share of card spend, cards ranked highest to lowest"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Share of cards"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Share of spend"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"Historical ledger, approved transactions, top 0.1\% of tickets excluded"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/pareto-1} \end{center}
+
+The top 20\% of cards carry \textbf{58\%} of spend; the bottom half
+carry \textbf{14\%}. The commercial reading is blunt: a promotions
+programme run as a broadcast is spending most of its budget on
+cardholders who contribute almost nothing, and is under-serving the
+group that funds the network.
+
+\subsection{Four cardholders, not one}\label{four-cardholders-not-one}
+
+We segment on the two dimensions that a promotions team can actually act
+on --- \textbf{value per active month} and \textbf{merchant breadth}
+(how many different merchants a card touches). Both are split at the
+portfolio median, which keeps the rule transparent and reproducible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{card }\OtherTok{\textless{}{-}}\NormalTok{ card }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{segment =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    spend\_pm }\SpecialCharTok{\textgreater{}=} \FunctionTok{median}\NormalTok{(spend\_pm) }\SpecialCharTok{\&}\NormalTok{ merchants }\SpecialCharTok{\textgreater{}=} \FunctionTok{median}\NormalTok{(merchants) }\SpecialCharTok{\textasciitilde{}} \StringTok{"Core Everyday"}\NormalTok{,}
+\NormalTok{    spend\_pm }\SpecialCharTok{\textgreater{}=} \FunctionTok{median}\NormalTok{(spend\_pm)                                   }\SpecialCharTok{\textasciitilde{}} \StringTok{"Big{-}Ticket Narrow"}\NormalTok{,}
+\NormalTok{    merchants }\SpecialCharTok{\textgreater{}=} \FunctionTok{median}\NormalTok{(merchants)                                 }\SpecialCharTok{\textasciitilde{}} \StringTok{"Explorer Light"}\NormalTok{,}
+    \ConstantTok{TRUE}                                                           \SpecialCharTok{\textasciitilde{}} \StringTok{"Occasional"}\NormalTok{),}
+    \AttributeTok{segment =} \FunctionTok{factor}\NormalTok{(segment, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Core Everyday"}\NormalTok{, }\StringTok{"Big{-}Ticket Narrow"}\NormalTok{,}
+                                         \StringTok{"Explorer Light"}\NormalTok{, }\StringTok{"Occasional"}\NormalTok{)))}
+
+\NormalTok{seg\_profile }\OtherTok{\textless{}{-}}\NormalTok{ card }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(segment) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Cards =} \FunctionTok{n}\NormalTok{(),}
+            \StringTok{\textasciigrave{}}\AttributeTok{\% of cards}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{n}\NormalTok{() }\SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(card),}
+            \StringTok{\textasciigrave{}}\AttributeTok{\% of spend}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{sum}\NormalTok{(spend) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(card}\SpecialCharTok{$}\NormalTok{spend),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Spend / month}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(spend\_pm),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Txns / month}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(txns\_pm),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Avg ticket}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(avg\_ticket),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Merchants}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(merchants),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Days since last txn}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(recency\_days),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(decline\_rate), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{)}
+
+\NormalTok{seg\_profile }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\% of cards}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\% of cards}\StringTok{\textasciigrave{}}\NormalTok{, }\FloatTok{0.1}\NormalTok{),}
+         \StringTok{\textasciigrave{}}\AttributeTok{\% of spend}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\% of spend}\StringTok{\textasciigrave{}}\NormalTok{, }\FloatTok{0.1}\NormalTok{),}
+         \StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}}\NormalTok{, }\FloatTok{0.1}\NormalTok{),}
+         \FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}}\FunctionTok{round}\NormalTok{(.x, }\DecValTok{1}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1417}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0472}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0866}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0866}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1102}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1024}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0866}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0787}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1575}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1024}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+segment
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Cards
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\% of cards
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\% of spend
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Spend / month
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Txns / month
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Avg ticket
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Merchants
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Days since last txn
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Decline rate
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Core Everyday & 171 & 36.9\% & 72.3\% & 3583.9 & 35.2 & 111.8 & 114.9 &
+22.2 & 5.6\% \\
+Big-Ticket Narrow & 61 & 13.2\% & 12.5\% & 2459.4 & 20.3 & 148.2 & 39.9
+& 44.5 & 8.3\% \\
+Explorer Light & 66 & 14.3\% & 6.6\% & 655.8 & 17.4 & 40.7 & 73.6 & 24.6
+& 8.5\% \\
+Occasional & 165 & 35.6\% & 8.6\% & 457.9 & 9.4 & 68.2 & 28.5 & 37.9 &
+12.6\% \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{seg\_profile }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(segment, }\StringTok{\textasciigrave{}}\AttributeTok{\% of cards}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{\% of spend}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{segment) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(segment, value, }\AttributeTok{fill =}\NormalTok{ name)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{percent}\NormalTok{(value, }\FloatTok{0.1}\NormalTok{)), }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(.}\DecValTok{9}\NormalTok{),}
+            \AttributeTok{vjust =} \SpecialCharTok{{-}}\FloatTok{0.4}\NormalTok{, }\AttributeTok{size =} \FloatTok{3.2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent, }\AttributeTok{expand =} \FunctionTok{expansion}\NormalTok{(}\AttributeTok{mult =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, .}\DecValTok{15}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(PAL[}\DecValTok{3}\NormalTok{], PAL[}\DecValTok{1}\NormalTok{]), }\AttributeTok{name =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"One segment is the network"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Core Everyday cardholders are a third of the base and roughly three quarters of the money"}\NormalTok{,}
+       \AttributeTok{x =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{y =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/segments-1} \end{center}
+
+Read across the table rather than down it:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Core Everyday} --- a third of cards, about \textbf{72\% of
+  spend}, 35 transactions a month across \textasciitilde115 different
+  merchants, and the \emph{lowest} decline rate. This is the card in
+  someone's pocket every day.
+\item
+  \textbf{Big-Ticket Narrow} --- high value, but concentrated in
+  \textasciitilde40 merchants and last seen \textasciitilde43 days ago.
+  High revenue, thin relationship: the segment most exposed to a
+  competitor's offer.
+\item
+  \textbf{Occasional} --- a third of cards, under 9\% of spend, and the
+  \textbf{highest decline rate} of the four. A broadcast promotion
+  spends a third of its budget here.
+\item
+  \textbf{Explorer Light} --- broad but cheap: a R\$41 ticket across 74
+  merchants. Curious, low-value, and the natural audience for discovery
+  offers.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{km }\OtherTok{\textless{}{-}} \FunctionTok{kmeans}\NormalTok{(}\FunctionTok{scale}\NormalTok{(card }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{transmute}\NormalTok{(}\FunctionTok{log1p}\NormalTok{(spend\_pm), }\FunctionTok{log1p}\NormalTok{(txns\_pm),}
+                                      \FunctionTok{log1p}\NormalTok{(merchants), }\FunctionTok{log1p}\NormalTok{(avg\_ticket))),}
+             \AttributeTok{centers =} \DecValTok{4}\NormalTok{, }\AttributeTok{nstart =} \DecValTok{25}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Unsupervised cross{-}check — k{-}means (k = 4) cluster sizes:"}\NormalTok{,}
+    \FunctionTok{paste}\NormalTok{(km}\SpecialCharTok{$}\NormalTok{size, }\AttributeTok{collapse =} \StringTok{" / "}\NormalTok{),}
+    \StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Between{-}cluster variance explained:"}\NormalTok{, }\FunctionTok{percent}\NormalTok{(km}\SpecialCharTok{$}\NormalTok{betweenss }\SpecialCharTok{/}\NormalTok{ km}\SpecialCharTok{$}\NormalTok{totss, }\FloatTok{0.1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Unsupervised cross-check — k-means (k = 4) cluster sizes: 138 / 105 / 149 / 71 
+## Between-cluster variance explained: 65.5%
+\end{verbatim}
+
+An unsupervised k-means on the same behavioural variables separates the
+base into groups of comparable size and explains a large share of the
+variance, so the four-way split is a property of the data rather than an
+artefact of where we drew the median.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{How is the network actually
+used?}\label{how-is-the-network-actually-used}
+
+\subsection{This is the identity
+answer}\label{this-is-the-identity-answer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{instal\_mix }\OtherTok{\textless{}{-}}\NormalTok{ hist\_w }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(instal\_band)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(instal\_band) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{share =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+
+\NormalTok{instal\_mix }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{share =} \FunctionTok{percent}\NormalTok{(share, }\FloatTok{0.1}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Instalments"}\NormalTok{, }\StringTok{"Transactions"}\NormalTok{, }\StringTok{"Share"}\NormalTok{),}
+        \AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrl@{}}
+\toprule\noalign{}
+Instalments & Transactions & Share \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 (lump sum) & 55,991 & 56.2\% \\
+1 (single) & 39,736 & 39.9\% \\
+2-3 & 2,541 & 2.6\% \\
+4-6 & 914 & 0.9\% \\
+7-12 & 389 & 0.4\% \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(instal\_mix, }\FunctionTok{aes}\NormalTok{(instal\_band, share)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ PAL[}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{percent}\NormalTok{(share, }\FloatTok{0.1}\NormalTok{)), }\AttributeTok{vjust =} \SpecialCharTok{{-}}\FloatTok{0.4}\NormalTok{, }\AttributeTok{size =} \FloatTok{3.6}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent, }\AttributeTok{expand =} \FunctionTok{expansion}\NormalTok{(}\AttributeTok{mult =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, .}\DecValTok{15}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Elo is not an instalment network"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"96\% of transactions settle in a single payment {-} the parcelado market is happening somewhere else"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Instalments on the transaction"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Share of transactions"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/instalments-1} \end{center}
+
+In Brazil, \emph{parcelado} --- splitting a purchase across monthly
+instalments --- is the defining behaviour of the credit card market. On
+this ledger it is almost absent. \textbf{56\%} of transactions are lump
+sum, \textbf{40\%} are a single payment, and everything from two
+instalments upward accounts for under \textbf{4\%}.
+
+Combined with a median ticket of \textbf{R\$35} and \textbf{63\%} of
+transactions under R\$50, the identity is settled:
+
+\begin{quote}
+\textbf{Elo is a high-frequency, small-ticket, everyday-spend network.}
+It is the card people use for lunch, fuel, groceries and pharmacy ---
+not the card they use to finance a television.
+\end{quote}
+
+That single sentence should govern the Q4 promotions strategy, because
+everything a promotions team is tempted to do --- big-ticket instalment
+offers, electronics tie-ups, luxury partnerships --- is aimed at a
+network we are not.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(hour) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{share =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(hour, share)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ PAL[}\DecValTok{2}\NormalTok{]) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+} \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{3}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"A daytime, everyday rhythm"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Share of approved transactions by hour {-} a lunchtime peak, then a long afternoon plateau"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Hour of day"}\NormalTok{, }\AttributeTok{y =} \ConstantTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/time-patterns-1} \end{center}
+
+The clock agrees with the ticket. Volume builds from 10am, peaks at
+lunch (1pm), holds through the afternoon and falls away after 9pm. This
+is consumption, not commerce.
+
+\subsection{Authorisation: a small leak in a specific
+place}\label{authorisation-a-small-leak-in-a-specific-place}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{approval\_overall }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(hist\_txn}\SpecialCharTok{$}\NormalTok{approved)}
+
+\NormalTok{ticket\_band }\OtherTok{\textless{}{-}}\NormalTok{ hist\_w }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{band =} \FunctionTok{cut}\NormalTok{(amount\_brl, }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{250}\NormalTok{, }\DecValTok{500}\NormalTok{, }\DecValTok{1000}\NormalTok{, }\ConstantTok{Inf}\NormalTok{),}
+                    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"\textless{}25"}\NormalTok{, }\StringTok{"25{-}50"}\NormalTok{, }\StringTok{"50{-}100"}\NormalTok{, }\StringTok{"100{-}250"}\NormalTok{, }\StringTok{"250{-}500"}\NormalTok{, }\StringTok{"500{-}1k"}\NormalTok{, }\StringTok{"1k+"}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(band) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Transactions =} \FunctionTok{n}\NormalTok{(), }\StringTok{\textasciigrave{}}\AttributeTok{\% of volume}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{n}\NormalTok{() }\SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(hist\_w),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(}\SpecialCharTok{!}\NormalTok{approved), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Overall approval rate:"}\NormalTok{, }\FunctionTok{percent}\NormalTok{(approval\_overall, }\FloatTok{0.01}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Overall approval rate: 93.00%
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ticket\_band }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\% of volume}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{\% of volume}\StringTok{\textasciigrave{}}\NormalTok{, }\FloatTok{0.1}\NormalTok{),}
+                       \StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}}\NormalTok{, }\FloatTok{0.1}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrll@{}}
+\toprule\noalign{}
+band & Transactions & \% of volume & Decline rate \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textless25 & 39,374 & 39.4\% & 6.7\% \\
+25-50 & 23,223 & 23.2\% & 6.4\% \\
+50-100 & 17,506 & 17.5\% & 6.3\% \\
+100-250 & 13,529 & 13.5\% & 7.2\% \\
+250-500 & 3,790 & 3.8\% & 9.4\% \\
+500-1k & 1,481 & 1.5\% & 13.6\% \\
+1k+ & 998 & 1.0\% & 18.7\% \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(ticket\_band, }\FunctionTok{aes}\NormalTok{(band, }\StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ PAL[}\DecValTok{5}\NormalTok{]) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{percent}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Decline rate}\StringTok{\textasciigrave{}}\NormalTok{, }\FloatTok{0.1}\NormalTok{)), }\AttributeTok{vjust =} \SpecialCharTok{{-}}\FloatTok{0.4}\NormalTok{, }\AttributeTok{size =} \FloatTok{3.5}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent, }\AttributeTok{expand =} \FunctionTok{expansion}\NormalTok{(}\AttributeTok{mult =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, .}\DecValTok{18}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Declines climb steeply with basket size"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"A 6.7\% decline rate under R$25 becomes 18.7\% above R$1,000"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Ticket size (BRL)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Declined share"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/decline-chart-1} \end{center}
+
+Approval is \textbf{93.0\%} overall, which sounds healthy. It is not
+evenly distributed. Below R\$25 we decline 6.7\% of attempts; above
+R\$1,000 we decline \textbf{18.7\%}. The network is at its \emph{worst}
+exactly where a promotion would be trying to push a cardholder to trade
+up.
+
+\subsection{What actually causes a
+decline?}\label{what-actually-causes-a-decline}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ct\_df }\OtherTok{\textless{}{-}}\NormalTok{ hist\_w }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(instal\_band)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{instal\_band =} \FunctionTok{droplevels}\NormalTok{(instal\_band))}
+\NormalTok{chi }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(}\FunctionTok{table}\NormalTok{(ct\_df}\SpecialCharTok{$}\NormalTok{instal\_band, ct\_df}\SpecialCharTok{$}\NormalTok{approved))}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Chi{-}square, instalment band x authorisation:  X{-}squared ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(chi}\SpecialCharTok{$}\NormalTok{statistic, }\DecValTok{1}\NormalTok{),}
+    \StringTok{" df ="}\NormalTok{, chi}\SpecialCharTok{$}\NormalTok{parameter, }\StringTok{" p ="}\NormalTok{, }\FunctionTok{format.pval}\NormalTok{(chi}\SpecialCharTok{$}\NormalTok{p.value, }\AttributeTok{digits =} \DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Chi-square, instalment band x authorisation:  X-squared = 446.1  df = 4  p = <0.0000000000000002
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mdl }\OtherTok{\textless{}{-}}\NormalTok{ hist\_w }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(instal)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{transmute}\NormalTok{(}\AttributeTok{decline =} \FunctionTok{as.integer}\NormalTok{(}\SpecialCharTok{!}\NormalTok{approved),}
+            \AttributeTok{log\_amt =} \FunctionTok{log1p}\NormalTok{(}\FunctionTok{pmax}\NormalTok{(amount\_brl, }\FloatTok{0.01}\NormalTok{)),}
+            \AttributeTok{multi   =} \FunctionTok{as.integer}\NormalTok{(instal }\SpecialCharTok{\textgreater{}=} \DecValTok{2}\NormalTok{),}
+            \AttributeTok{cat1\_y  =} \FunctionTok{as.integer}\NormalTok{(category\_1 }\SpecialCharTok{==} \StringTok{"Y"}\NormalTok{))}
+\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(decline }\SpecialCharTok{\textasciitilde{}}\NormalTok{ log\_amt }\SpecialCharTok{+}\NormalTok{ multi }\SpecialCharTok{+}\NormalTok{ cat1\_y, }\AttributeTok{data =}\NormalTok{ mdl, }\AttributeTok{family =} \FunctionTok{binomial}\NormalTok{())}
+
+\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Term =} \FunctionTok{c}\NormalTok{(}\StringTok{"(Intercept)"}\NormalTok{, }\StringTok{"log(amount)"}\NormalTok{, }\StringTok{"2+ instalments"}\NormalTok{, }\StringTok{"category\_1 = Y"}\NormalTok{),}
+           \AttributeTok{Coefficient =} \FunctionTok{round}\NormalTok{(}\FunctionTok{coef}\NormalTok{(fit), }\DecValTok{4}\NormalTok{),}
+           \StringTok{\textasciigrave{}}\AttributeTok{Odds ratio}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\FunctionTok{coef}\NormalTok{(fit)), }\DecValTok{3}\NormalTok{),}
+           \StringTok{\textasciigrave{}}\AttributeTok{z value}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(}\FunctionTok{summary}\NormalTok{(fit)}\SpecialCharTok{$}\NormalTok{coefficients[, }\DecValTok{3}\NormalTok{], }\DecValTok{1}\NormalTok{),}
+           \AttributeTok{check.names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{row.names =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule\noalign{}
+Term & Coefficient & Odds ratio & z value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+(Intercept) & -3.0172 & 0.049 & -69.8 \\
+log(amount) & 0.0714 & 1.074 & 6.4 \\
+2+ instalments & 0.1148 & 1.122 & 2.0 \\
+category\_1 = Y & 1.4473 & 4.252 & 41.1 \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"McFadden pseudo R{-}squared:"}\NormalTok{, }\FunctionTok{round}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ fit}\SpecialCharTok{$}\NormalTok{deviance }\SpecialCharTok{/}\NormalTok{ fit}\SpecialCharTok{$}\NormalTok{null.deviance, }\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## McFadden pseudo R-squared: 0.0313
+\end{verbatim}
+
+The association between instalments and authorisation is real and not a
+fluke of sample size. But the logistic model says something more useful:
+the dominant driver is not the amount and not the instalment plan --- it
+is the anonymised flag \textbf{\texttt{category\_1\ =\ Y}, which
+multiplies the odds of a decline by roughly 4.3×}. Only 6.1\% of
+transactions carry that flag, and they are being turned away at more
+than four times the normal rate.
+
+\textbf{Business consequence.} Before Elo spends a cent on Q4
+promotions, the risk team should be asked what
+\texttt{category\_1\ =\ Y} represents. If it is a merchant risk
+classification, we are currently promoting into a population we then
+decline. That is a promotion budget that generates a bad cardholder
+experience and no revenue.
+
+\subsection{Growth is activation, not
+deepening}\label{growth-is-activation-not-deepening}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monthly }\OtherTok{\textless{}{-}}\NormalTok{ hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(month) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Transactions =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{Spend =} \FunctionTok{sum}\NormalTok{(amount\_brl),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Active cards}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{n\_distinct}\NormalTok{(card\_id),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Avg ticket}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{mean}\NormalTok{(amount\_brl), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Txns per active card}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(Transactions }\SpecialCharTok{/} \StringTok{\textasciigrave{}}\AttributeTok{Active cards}\StringTok{\textasciigrave{}}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\NormalTok{monthly }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Spend =} \FunctionTok{comma}\NormalTok{(}\FunctionTok{round}\NormalTok{(Spend)), }\StringTok{\textasciigrave{}}\AttributeTok{Avg ticket}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Avg ticket}\StringTok{\textasciigrave{}}\NormalTok{, }\DecValTok{2}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1081}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1757}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1081}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1757}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1486}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2838}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+month
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transactions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Spend
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Active cards
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Avg ticket
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Txns per active card
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2017-01 & 4,386 & 357,419 & 241 & 81.49 & 18.2 \\
+2017-02 & 4,415 & 327,484 & 246 & 74.18 & 17.9 \\
+2017-03 & 5,058 & 419,303 & 259 & 82.90 & 19.5 \\
+2017-04 & 4,712 & 367,270 & 271 & 77.94 & 17.4 \\
+2017-05 & 5,154 & 384,569 & 293 & 74.62 & 17.6 \\
+2017-06 & 5,404 & 409,562 & 302 & 75.79 & 17.9 \\
+2017-07 & 6,989 & 555,876 & 333 & 79.54 & 21.0 \\
+2017-08 & 7,562 & 603,768 & 349 & 79.84 & 21.7 \\
+2017-09 & 7,784 & 636,632 & 368 & 81.79 & 21.2 \\
+2017-10 & 8,476 & 726,090 & 395 & 85.66 & 21.5 \\
+2017-11 & 8,571 & 773,637 & 398 & 90.26 & 21.5 \\
+2017-12 & 9,826 & 964,849 & 396 & 98.19 & 24.8 \\
+2018-01 & 8,079 & 769,914 & 368 & 95.30 & 22.0 \\
+2018-02 & 6,514 & 574,352 & 334 & 88.17 & 19.5 \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(monthly, }\FunctionTok{aes}\NormalTok{(month, Transactions, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{1}\NormalTok{], }\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{1}\NormalTok{]) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \StringTok{\textasciigrave{}}\AttributeTok{Active cards}\StringTok{\textasciigrave{}} \SpecialCharTok{*} \DecValTok{20}\NormalTok{), }\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{4}\NormalTok{], }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{size =}\NormalTok{ .}\DecValTok{9}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ comma,}
+                     \AttributeTok{sec.axis =} \FunctionTok{sec\_axis}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ . }\SpecialCharTok{/} \DecValTok{20}\NormalTok{, }\AttributeTok{name =} \StringTok{"Active cards (dashed)"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Volume grows because cards activate, not because cards spend more"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Approved transactions (solid, left) against active cards (dashed, right)"}\NormalTok{,}
+       \AttributeTok{x =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{y =} \StringTok{"Transactions"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/monthly-1} \end{center}
+
+Transactions roughly double over the window, but transactions \emph{per
+active card} barely move --- 18 in January 2017, 20 in February 2018,
+with a December peak of 25. Average ticket rises from R\$81 to R\$98 in
+December and falls back.
+
+That is a clean diagnosis: \textbf{the network grows by adding cards,
+not by getting existing cards to do more.} The promotions programme,
+whose entire job is the second thing, is currently not visible in this
+series.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{The merchant side of the
+marketplace}\label{the-merchant-side-of-the-marketplace}
+
+\subsection{A base of very small
+merchants}\label{a-base-of-very-small-merchants}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{size\_pyramid }\OtherTok{\textless{}{-}}\NormalTok{ merch }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(most\_recent\_sales\_range)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(most\_recent\_sales\_range) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{share =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+
+\NormalTok{size\_pyramid }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{share =} \FunctionTok{percent}\NormalTok{(share, }\FloatTok{0.1}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Sales range (A = largest)"}\NormalTok{, }\StringTok{"Merchants"}\NormalTok{, }\StringTok{"Share of base"}\NormalTok{),}
+        \AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrl@{}}
+\toprule\noalign{}
+Sales range (A = largest) & Merchants & Share of base \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & 991 & 0.3\% \\
+B & 5,030 & 1.5\% \\
+C & 34,059 & 10.2\% \\
+D & 117,460 & 35.1\% \\
+E & 177,093 & 52.9\% \\
+\end{longtable}
+}
+
+\textbf{88\%} of the merchant base sits in the two smallest revenue
+bands. Only \textbf{1,005 merchants --- 0.3\% --- are in the top band.}
+Elo's marketplace is a long tail of very small businesses with a handful
+of large ones at the top.
+
+\subsection{And a ledger that only touches a fraction of
+it}\label{and-a-ledger-that-only-touches-a-fraction-of-it}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# 0.5\% of ledger rows carry no merchant\_id. They are dropped from every}
+\DocumentationTok{\#\# merchant{-}level count, otherwise "unknown" ranks as the largest merchant.}
+\NormalTok{hist\_m }\OtherTok{\textless{}{-}}\NormalTok{ hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(merchant\_id))}
+\NormalTok{new\_m  }\OtherTok{\textless{}{-}}\NormalTok{ new\_w   }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(merchant\_id))}
+
+\NormalTok{merch\_txn }\OtherTok{\textless{}{-}}\NormalTok{ hist\_m }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(merchant\_id, }\AttributeTok{name =} \StringTok{"txns"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(txns)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cum\_share =} \FunctionTok{cumsum}\NormalTok{(txns) }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(txns))}
+\NormalTok{seen }\OtherTok{\textless{}{-}} \FunctionTok{union}\NormalTok{(}\FunctionTok{unique}\NormalTok{(hist\_m}\SpecialCharTok{$}\NormalTok{merchant\_id), }\FunctionTok{unique}\NormalTok{(new\_m}\SpecialCharTok{$}\NormalTok{merchant\_id))}
+
+\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Metric =} \FunctionTok{c}\NormalTok{(}\StringTok{"Merchants in the reference file"}\NormalTok{,}
+                      \StringTok{"Merchants transacted with in the historical window"}\NormalTok{,}
+                      \StringTok{"Merchants transacted with in the novelty window"}\NormalTok{,}
+                      \StringTok{"Merchants never seen in either window"}\NormalTok{,}
+                      \StringTok{"Share of transactions from the top 100 merchants"}\NormalTok{,}
+                      \StringTok{"Share of transactions from the top 1,000 merchants"}\NormalTok{),}
+           \AttributeTok{Value =} \FunctionTok{c}\NormalTok{(}\FunctionTok{comma}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(merch)), }\FunctionTok{comma}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(merch\_txn)),}
+                     \FunctionTok{comma}\NormalTok{(}\FunctionTok{n\_distinct}\NormalTok{(new\_m}\SpecialCharTok{$}\NormalTok{merchant\_id)),}
+                     \FunctionTok{percent}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{length}\NormalTok{(seen) }\SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(merch), }\FloatTok{0.1}\NormalTok{),}
+                     \FunctionTok{percent}\NormalTok{(merch\_txn}\SpecialCharTok{$}\NormalTok{cum\_share[}\DecValTok{100}\NormalTok{], }\FloatTok{0.1}\NormalTok{),}
+                     \FunctionTok{percent}\NormalTok{(merch\_txn}\SpecialCharTok{$}\NormalTok{cum\_share[}\DecValTok{1000}\NormalTok{], }\FloatTok{0.1}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Metric & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Merchants in the reference file & 334,633 \\
+Merchants transacted with in the historical window & 20,549 \\
+Merchants transacted with in the novelty window & 48,941 \\
+Merchants never seen in either window & 82.4\% \\
+Share of transactions from the top 100 merchants & 22.6\% \\
+Share of transactions from the top 1,000 merchants & 50.3\% \\
+\end{longtable}
+}
+
+Two facts sit awkwardly together. \textbf{82\% of the merchants we
+maintain reference data for never appear in either transaction window},
+while the \textbf{top 1,000 merchants carry half of all transactions}.
+The merchant file is largely an archive; the live marketplace is far
+smaller and far more concentrated than the file implies.
+
+\subsection{Health of the supply base}\label{health-of-the-supply-base}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{merch\_seg }\OtherTok{\textless{}{-}}\NormalTok{ merch }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\FunctionTok{is.finite}\NormalTok{(avg\_purchases\_lag3), }\FunctionTok{is.finite}\NormalTok{(avg\_purchases\_lag12),}
+\NormalTok{         avg\_purchases\_lag12 }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{momentum =}\NormalTok{ avg\_purchases\_lag3 }\SpecialCharTok{/}\NormalTok{ avg\_purchases\_lag12,}
+         \AttributeTok{health =} \FunctionTok{case\_when}\NormalTok{(active\_months\_lag12 }\SpecialCharTok{\textless{}} \DecValTok{12} \SpecialCharTok{\textasciitilde{}} \StringTok{"Intermittent"}\NormalTok{,}
+\NormalTok{                            momentum }\SpecialCharTok{\textgreater{}=} \FloatTok{1.05} \SpecialCharTok{\textasciitilde{}} \StringTok{"Accelerating"}\NormalTok{,}
+\NormalTok{                            momentum }\SpecialCharTok{\textless{}=} \FloatTok{0.95} \SpecialCharTok{\textasciitilde{}} \StringTok{"Decelerating"}\NormalTok{,}
+                            \ConstantTok{TRUE} \SpecialCharTok{\textasciitilde{}} \StringTok{"Steady"}\NormalTok{))}
+
+\NormalTok{merch\_seg }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(health) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Share =} \FunctionTok{percent}\NormalTok{(n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n), }\FloatTok{0.1}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(n)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Health"}\NormalTok{, }\StringTok{"Merchants"}\NormalTok{, }\StringTok{"Share"}\NormalTok{),}
+                             \AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrl@{}}
+\toprule\noalign{}
+Health & Merchants & Share \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Decelerating & 129,755 & 38.8\% \\
+Accelerating & 91,276 & 27.3\% \\
+Steady & 84,015 & 25.1\% \\
+Intermittent & 29,584 & 8.8\% \\
+\end{longtable}
+}
+
+Comparing each merchant's last-three-month transaction ratio with its
+last-twelve-month ratio splits the base into four states. \textbf{39\%
+are decelerating} and a further \textbf{9\% transact intermittently} ---
+nearly half the marketplace is flat or shrinking. Only 27\% are
+accelerating. A promotions programme has a genuine supply-side job here,
+but only if it is aimed at merchants that can convert traffic, not at
+ones already on the way out.
+
+\subsection{Where the money actually
+lands}\label{where-the-money-actually-lands}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tier }\OtherTok{\textless{}{-}}\NormalTok{ merch }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(merchant\_id, most\_recent\_sales\_range)}
+\NormalTok{tier\_flow }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(}
+\NormalTok{  hist\_m }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(merchant\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{window =} \StringTok{"Incumbent spend"}\NormalTok{),}
+\NormalTok{  new\_m   }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(merchant\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{window =} \StringTok{"New{-}merchant spend"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(tier, }\AttributeTok{by =} \StringTok{"merchant\_id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(most\_recent\_sales\_range)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(window, most\_recent\_sales\_range) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(window) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{share =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{bind\_rows}\NormalTok{(size\_pyramid }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{transmute}\NormalTok{(}\AttributeTok{window =} \StringTok{"Merchant population"}\NormalTok{,}
+\NormalTok{                                       most\_recent\_sales\_range, n, share))}
+
+\NormalTok{tier\_flow }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{n) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{names\_from =}\NormalTok{ window, }\AttributeTok{values\_from =}\NormalTok{ share) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric), }\SpecialCharTok{\textasciitilde{}}\FunctionTok{percent}\NormalTok{(.x, }\FloatTok{0.1}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Tier"}\NormalTok{, }\StringTok{"Incumbent spend"}\NormalTok{, }\StringTok{"New{-}merchant spend"}\NormalTok{, }\StringTok{"Merchant population"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Tier & Incumbent spend & New-merchant spend & Merchant population \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & 26.1\% & 16.9\% & 0.3\% \\
+B & 19.1\% & 16.6\% & 1.5\% \\
+C & 24.8\% & 27.9\% & 10.2\% \\
+D & 19.1\% & 26.8\% & 35.1\% \\
+E & 11.0\% & 11.9\% & 52.9\% \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(tier\_flow, }\FunctionTok{aes}\NormalTok{(most\_recent\_sales\_range, share,}
+                      \AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(window, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Merchant population"}\NormalTok{,}
+                                                       \StringTok{"Incumbent spend"}\NormalTok{, }\StringTok{"New{-}merchant spend"}\NormalTok{)))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ PAL[}\FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{)], }\AttributeTok{name =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Incumbency sits at the top of the pyramid, discovery in the tail"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Tier A is 0.3\% of merchants and 26\% of incumbent volume {-} but only 17\% of new{-}merchant volume"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Merchant size tier (A = largest)"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Share"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/tiers-1} \end{center}
+
+This is the most commercially loaded chart in the report.
+
+\begin{itemize}
+\tightlist
+\item
+  Tier A is \textbf{0.3\% of merchants} but takes \textbf{26.1\%} of
+  incumbent transactions. These are the merchants a cardholder already
+  uses.
+\item
+  In the novelty window that same tier takes only \textbf{16.9\%}, while
+  tier D rises from 19.1\% to \textbf{26.8\%}.
+\end{itemize}
+
+\textbf{New commercial relationships form disproportionately in the long
+tail.} A promotion placed with a tier A merchant is, on this evidence,
+largely paying for traffic that was going to happen anyway. A promotion
+placed with a healthy tier C or D merchant is far more likely to be
+paying for a relationship that did not previously exist.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Region: where supply does not match
+demand}\label{region-where-supply-does-not-match-demand}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{geo }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(state\_id, }\AttributeTok{name =} \StringTok{"inc\_txns"}\NormalTok{),}
+\NormalTok{                 new\_w   }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(state\_id, }\AttributeTok{name =} \StringTok{"nov\_txns"}\NormalTok{), }\AttributeTok{by =} \StringTok{"state\_id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(merch }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(state\_id, }\AttributeTok{name =} \StringTok{"merchants"}\NormalTok{), }\AttributeTok{by =} \StringTok{"state\_id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{replace\_na}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{inc\_txns =} \DecValTok{0}\NormalTok{, }\AttributeTok{nov\_txns =} \DecValTok{0}\NormalTok{, }\AttributeTok{merchants =} \DecValTok{0}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Demand share}\StringTok{\textasciigrave{}}   \OtherTok{=}\NormalTok{ inc\_txns }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(inc\_txns),}
+         \StringTok{\textasciigrave{}}\AttributeTok{Novelty share}\StringTok{\textasciigrave{}}  \OtherTok{=}\NormalTok{ nov\_txns }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(nov\_txns),}
+         \StringTok{\textasciigrave{}}\AttributeTok{Supply share}\StringTok{\textasciigrave{}}   \OtherTok{=}\NormalTok{ merchants }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(merchants),}
+         \StringTok{\textasciigrave{}}\AttributeTok{Coverage index}\StringTok{\textasciigrave{}} \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Supply share}\StringTok{\textasciigrave{}} \SpecialCharTok{/} \StringTok{\textasciigrave{}}\AttributeTok{Demand share}\StringTok{\textasciigrave{}}\NormalTok{,}
+         \StringTok{\textasciigrave{}}\AttributeTok{Novelty index}\StringTok{\textasciigrave{}}  \OtherTok{=} \StringTok{\textasciigrave{}}\AttributeTok{Novelty share}\StringTok{\textasciigrave{}} \SpecialCharTok{/} \StringTok{\textasciigrave{}}\AttributeTok{Demand share}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(inc\_txns))}
+
+\NormalTok{geo }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{head}\NormalTok{(}\DecValTok{10}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Demand share}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Novelty share}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Supply share}\StringTok{\textasciigrave{}}\NormalTok{), }\SpecialCharTok{\textasciitilde{}}\FunctionTok{percent}\NormalTok{(.x, }\FloatTok{0.1}\NormalTok{)),}
+         \FunctionTok{across}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Coverage index}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Novelty index}\StringTok{\textasciigrave{}}\NormalTok{), }\SpecialCharTok{\textasciitilde{}}\FunctionTok{round}\NormalTok{(.x, }\DecValTok{2}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(state\_id, inc\_txns, }\StringTok{\textasciigrave{}}\AttributeTok{Demand share}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Supply share}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Coverage index}\StringTok{\textasciigrave{}}\NormalTok{,}
+         \StringTok{\textasciigrave{}}\AttributeTok{Novelty share}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Novelty index}\StringTok{\textasciigrave{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"State"}\NormalTok{, }\StringTok{"Transactions"}\NormalTok{, }\StringTok{"Demand share"}\NormalTok{, }\StringTok{"Supply share"}\NormalTok{,}
+                      \StringTok{"Coverage"}\NormalTok{, }\StringTok{"Novelty share"}\NormalTok{, }\StringTok{"Novelty index"}\NormalTok{),}
+        \AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.0732}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1585}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1585}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1585}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1098}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1707}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1707}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+State
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transactions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Demand share
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Supply share
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Coverage
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Novelty share
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Novelty index
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+9 & 36,105 & 38.9\% & 27.7\% & 0.71 & 39.2\% & 1.01 \\
+16 & 7,272 & 7.8\% & 9.9\% & 1.27 & 6.5\% & 0.84 \\
+-1 & 6,203 & 6.7\% & 3.5\% & 0.53 & 4.7\% & 0.70 \\
+15 & 5,493 & 5.9\% & 8.1\% & 1.38 & 8.0\% & 1.35 \\
+5 & 5,351 & 5.8\% & 7.0\% & 1.22 & 7.0\% & 1.21 \\
+20 & 4,536 & 4.9\% & 4.7\% & 0.96 & 4.2\% & 0.85 \\
+11 & 3,913 & 4.2\% & 2.2\% & 0.52 & 2.4\% & 0.57 \\
+21 & 3,682 & 4.0\% & 4.1\% & 1.03 & 2.6\% & 0.64 \\
+19 & 3,387 & 3.6\% & 5.6\% & 1.54 & 4.2\% & 1.15 \\
+22 & 2,894 & 3.1\% & 2.0\% & 0.63 & 4.1\% & 1.31 \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{geo }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(inc\_txns }\SpecialCharTok{\textgreater{}=} \DecValTok{500}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Demand share}\StringTok{\textasciigrave{}}\NormalTok{, }\StringTok{\textasciigrave{}}\AttributeTok{Supply share}\StringTok{\textasciigrave{}}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_abline}\NormalTok{(}\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{colour =} \StringTok{"grey60"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{size =}\NormalTok{ inc\_txns), }\AttributeTok{colour =}\NormalTok{ PAL[}\DecValTok{1}\NormalTok{], }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{75}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"S"}\NormalTok{, state\_id)), }\AttributeTok{vjust =} \SpecialCharTok{{-}}\FloatTok{1.1}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+} \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+}
+  \FunctionTok{scale\_size\_continuous}\NormalTok{(}\AttributeTok{range =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{10}\NormalTok{), }\AttributeTok{guide =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Where the merchant base does not match the cardholders"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Below the dashed line = more cardholder demand than merchant supply"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Share of card transactions"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Share of merchants"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"States with at least 500 transactions in the historical window. S{-}1 = unknown/unmapped state code."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/geo-1} \end{center}
+
+State 9 alone is \textbf{39\% of card demand} but only \textbf{28\% of
+the merchant base} --- a coverage index of 0.71, the largest
+under-served market in the network. States 15, 19 and 16 carry more
+merchants than their share of demand.
+
+The more interesting column is the \textbf{novelty index}. State 22 has
+only 3.1\% of demand but a novelty index of \textbf{1.31} --- its
+cardholders try new merchants far more readily than the network average,
+on a merchant base that is proportionally thin. That combination is a
+merchant-acquisition target, not a discount target.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{The novelty window: what discovery actually looks
+like}\label{the-novelty-window-what-discovery-actually-looks-like}
+
+This is the file most teams ignore, and it is the only place in the
+export where a \emph{new} commercial relationship is visible. A
+promotion that works creates exactly this event.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Metric =} \FunctionTok{c}\NormalTok{(}\StringTok{"Transactions"}\NormalTok{, }\StringTok{"Cards"}\NormalTok{, }\StringTok{"Distinct merchants"}\NormalTok{,}
+             \StringTok{"New merchants tried per card (2 months)"}\NormalTok{,}
+             \StringTok{"Average ticket at a new merchant (BRL)"}\NormalTok{,}
+             \StringTok{"Average ticket at a known merchant (BRL)"}\NormalTok{,}
+             \StringTok{"Median ticket at a new merchant (BRL)"}\NormalTok{,}
+             \StringTok{"Median ticket at a known merchant (BRL)"}\NormalTok{),}
+  \AttributeTok{Value =} \FunctionTok{c}\NormalTok{(}\FunctionTok{comma}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(new\_w)), }\FunctionTok{comma}\NormalTok{(}\FunctionTok{n\_distinct}\NormalTok{(new\_w}\SpecialCharTok{$}\NormalTok{card\_id)),}
+            \FunctionTok{comma}\NormalTok{(}\FunctionTok{n\_distinct}\NormalTok{(new\_m}\SpecialCharTok{$}\NormalTok{merchant\_id)),}
+            \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(}\FunctionTok{tapply}\NormalTok{(new\_m}\SpecialCharTok{$}\NormalTok{merchant\_id, new\_m}\SpecialCharTok{$}\NormalTok{card\_id,}
+                              \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(x)))), }\DecValTok{1}\NormalTok{),}
+            \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(new\_w}\SpecialCharTok{$}\NormalTok{amount\_brl), }\DecValTok{2}\NormalTok{), }\FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(hist\_ok}\SpecialCharTok{$}\NormalTok{amount\_brl), }\DecValTok{2}\NormalTok{),}
+            \FunctionTok{round}\NormalTok{(}\FunctionTok{median}\NormalTok{(new\_w}\SpecialCharTok{$}\NormalTok{amount\_brl), }\DecValTok{2}\NormalTok{), }\FunctionTok{round}\NormalTok{(}\FunctionTok{median}\NormalTok{(hist\_ok}\SpecialCharTok{$}\NormalTok{amount\_brl), }\DecValTok{2}\NormalTok{))) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Metric & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Transactions & 99,900 \\
+Cards & 7,527 \\
+Distinct merchants & 48,941 \\
+New merchants tried per card (2 months) & 13.1 \\
+Average ticket at a new merchant (BRL) & 118.7 \\
+Average ticket at a known merchant (BRL) & 84.7 \\
+Median ticket at a new merchant (BRL) & 48.05 \\
+Median ticket at a known merchant (BRL) & 34.62 \\
+\end{longtable}
+}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{novelty\_instal }\OtherTok{\textless{}{-}} \FunctionTok{bind\_rows}\NormalTok{(}
+\NormalTok{  hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(instal\_band)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(instal\_band) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Window =} \StringTok{"At a known merchant"}\NormalTok{, }\AttributeTok{share =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)),}
+\NormalTok{  new\_w }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(instal\_band)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(instal\_band) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Window =} \StringTok{"At a new merchant"}\NormalTok{, }\AttributeTok{share =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n)))}
+
+\FunctionTok{ggplot}\NormalTok{(novelty\_instal, }\FunctionTok{aes}\NormalTok{(instal\_band, share, }\AttributeTok{fill =}\NormalTok{ Window)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ percent) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ PAL[}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{)], }\AttributeTok{name =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Trying somewhere new is a considered purchase"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"A first visit carries a bigger ticket and is more likely to be split into instalments"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Instalments"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Share of transactions"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/novelty-instal-1} \end{center}
+
+Three findings, each one actionable:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{A first visit costs 40\% more.} R\$118.70 at a new merchant
+  against R\$84.70 at a known one. Discovery is not impulse --- it is a
+  considered purchase, and it is worth more per transaction.
+\item
+  \textbf{Instalment use nearly doubles.} 2--3 instalment purchases run
+  at 4.2\% at new merchants against 2.5\% at known ones. The one place
+  where Elo's cardholders do reach for instalments is a first purchase
+  somewhere new. That is where an instalment-linked promotion would
+  land, and nowhere else.
+\item
+  \textbf{Cardholders try roughly 13 new merchants in two months.}
+  Appetite for discovery is not the constraint. Direction is.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{The Q4 targeting map}\label{the-q4-targeting-map}
+
+We now put the demand side and supply side on one picture. Two indices
+per merchant subsector:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Novelty Capture Index (NCI)} = share of new-merchant volume ÷
+  share of incumbent volume. \textbf{Above 1} = cardholders come here to
+  try something new. \textbf{Below 1} = they come here out of habit.
+\item
+  \textbf{Coverage Index (COV)} = share of merchants ÷ share of
+  incumbent volume. \textbf{Above 1} = more merchant supply than
+  cardholder demand. \textbf{Below 1} = demand outruns supply.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sub\_map }\OtherTok{\textless{}{-}} \FunctionTok{full\_join}\NormalTok{(hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(subsector\_id, }\AttributeTok{name =} \StringTok{"inc\_txns"}\NormalTok{),}
+\NormalTok{                     new\_w   }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(subsector\_id, }\AttributeTok{name =} \StringTok{"nov\_txns"}\NormalTok{), }\AttributeTok{by =} \StringTok{"subsector\_id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(merch }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(subsector\_id, }\AttributeTok{name =} \StringTok{"merchants"}\NormalTok{), }\AttributeTok{by =} \StringTok{"subsector\_id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{full\_join}\NormalTok{(hist\_ok }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(subsector\_id) }\SpecialCharTok{\%\textgreater{}\%}
+              \FunctionTok{summarise}\NormalTok{(}\AttributeTok{avg\_ticket =} \FunctionTok{mean}\NormalTok{(amount\_brl), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{), }\AttributeTok{by =} \StringTok{"subsector\_id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{replace\_na}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{inc\_txns =} \DecValTok{0}\NormalTok{, }\AttributeTok{nov\_txns =} \DecValTok{0}\NormalTok{, }\AttributeTok{merchants =} \DecValTok{0}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{demand\_share =}\NormalTok{ inc\_txns }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(inc\_txns),}
+         \AttributeTok{novelty\_share =}\NormalTok{ nov\_txns }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(nov\_txns),}
+         \AttributeTok{supply\_share =}\NormalTok{ merchants }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(merchants),}
+         \AttributeTok{NCI =}\NormalTok{ novelty\_share }\SpecialCharTok{/}\NormalTok{ demand\_share,}
+         \AttributeTok{COV =}\NormalTok{ supply\_share }\SpecialCharTok{/}\NormalTok{ demand\_share) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(inc\_txns }\SpecialCharTok{\textgreater{}=} \DecValTok{300}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Role =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    NCI }\SpecialCharTok{\textgreater{}=} \FloatTok{1.2}              \SpecialCharTok{\textasciitilde{}} \StringTok{"Acquisition engine"}\NormalTok{,}
+\NormalTok{    COV }\SpecialCharTok{\textgreater{}=} \FloatTok{1.2}              \SpecialCharTok{\textasciitilde{}} \StringTok{"Over{-}served {-} promotion waste"}\NormalTok{,}
+    \ConstantTok{TRUE}                    \SpecialCharTok{\textasciitilde{}} \StringTok{"Habit anchor {-} under{-}supplied"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(demand\_share))}
+
+\FunctionTok{ggplot}\NormalTok{(sub\_map, }\FunctionTok{aes}\NormalTok{(COV, NCI)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \FloatTok{1.2}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{colour =} \StringTok{"grey55"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =} \FloatTok{1.2}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{colour =} \StringTok{"grey55"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{size =}\NormalTok{ demand\_share, }\AttributeTok{colour =}\NormalTok{ Role), }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{85}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ subsector\_id), }\AttributeTok{size =} \FloatTok{2.8}\NormalTok{, }\AttributeTok{vjust =} \SpecialCharTok{{-}}\FloatTok{1.2}\NormalTok{, }\AttributeTok{colour =} \StringTok{"grey25"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_size\_continuous}\NormalTok{(}\AttributeTok{range =} \FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\DecValTok{12}\NormalTok{), }\AttributeTok{labels =}\NormalTok{ percent, }\AttributeTok{name =} \StringTok{"Share of volume"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_colour\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Acquisition engine"} \OtherTok{=}\NormalTok{ PAL[}\DecValTok{1}\NormalTok{],}
+                                 \StringTok{"Habit anchor {-} under{-}supplied"} \OtherTok{=}\NormalTok{ PAL[}\DecValTok{4}\NormalTok{],}
+                                 \StringTok{"Over{-}served {-} promotion waste"} \OtherTok{=}\NormalTok{ PAL[}\DecValTok{2}\NormalTok{]), }\AttributeTok{name =} \ConstantTok{NULL}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{nrow =} \DecValTok{1}\NormalTok{, }\AttributeTok{order =} \DecValTok{1}\NormalTok{, }\AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{4}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Where to point the Q4 promotions programme"}\NormalTok{,}
+       \AttributeTok{subtitle =} \StringTok{"Novelty Capture Index against Coverage Index, by merchant subsector"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Coverage Index  (merchant supply / cardholder demand)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Novelty Capture Index  (new{-}merchant volume / incumbent volume)"}\NormalTok{,}
+       \AttributeTok{caption =} \StringTok{"Bubble size = share of incumbent transactions. Subsectors with 300+ incumbent transactions."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{Elo_Analysis_files/figure-latex/map-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sub\_map }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{transmute}\NormalTok{(}\AttributeTok{Subsector =}\NormalTok{ subsector\_id, }\AttributeTok{Transactions =}\NormalTok{ inc\_txns,}
+            \StringTok{\textasciigrave{}}\AttributeTok{Demand \%}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(demand\_share, }\FloatTok{0.1}\NormalTok{),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Novelty \%}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(novelty\_share, }\FloatTok{0.1}\NormalTok{),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Supply \%}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{percent}\NormalTok{(supply\_share, }\FloatTok{0.1}\NormalTok{),}
+            \AttributeTok{NCI =} \FunctionTok{round}\NormalTok{(NCI, }\DecValTok{2}\NormalTok{), }\AttributeTok{COV =} \FunctionTok{round}\NormalTok{(COV, }\DecValTok{2}\NormalTok{),}
+            \StringTok{\textasciigrave{}}\AttributeTok{Avg ticket}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{round}\NormalTok{(avg\_ticket, }\DecValTok{0}\NormalTok{), Role) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable}\NormalTok{(}\AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{big.mark =} \StringTok{","}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0980}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1275}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0882}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0980}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0882}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0490}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.0490}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.1078}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 16\tabcolsep) * \real{0.2941}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+Subsector
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Transactions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Demand \%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Novelty \%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Supply \%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+NCI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+COV
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Avg ticket
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+37 & 17,486 & 18.8\% & 21.0\% & 10.6\% & 1.12 & 0.56 & 49 & Habit anchor
+- under-supplied \\
+33 & 17,246 & 18.6\% & 7.8\% & 9.2\% & 0.42 & 0.50 & 69 & Habit anchor -
+under-supplied \\
+19 & 11,161 & 12.0\% & 10.6\% & 6.1\% & 0.88 & 0.51 & 71 & Habit anchor
+- under-supplied \\
+34 & 10,507 & 11.3\% & 9.8\% & 7.9\% & 0.86 & 0.70 & 39 & Habit anchor -
+under-supplied \\
+29 & 8,269 & 8.9\% & 6.3\% & 6.4\% & 0.71 & 0.72 & 87 & Habit anchor -
+under-supplied \\
+16 & 4,962 & 5.3\% & 5.3\% & 4.9\% & 0.99 & 0.92 & 62 & Habit anchor -
+under-supplied \\
+27 & 4,111 & 4.4\% & 9.6\% & 15.4\% & 2.16 & 3.49 & 175 & Acquisition
+engine \\
+21 & 2,494 & 2.7\% & 3.4\% & 7.2\% & 1.26 & 2.70 & 148 & Acquisition
+engine \\
+7 & 2,445 & 2.6\% & 2.5\% & 2.3\% & 0.95 & 0.87 & 85 & Habit anchor -
+under-supplied \\
+1 & 1,845 & 2.0\% & 2.9\% & 1.8\% & 1.48 & 0.92 & 155 & Acquisition
+engine \\
+15 & 1,789 & 1.9\% & 1.3\% & 1.0\% & 0.68 & 0.53 & 183 & Habit anchor -
+under-supplied \\
+39 & 1,111 & 1.2\% & 1.4\% & 0.2\% & 1.20 & 0.21 & 20 & Habit anchor -
+under-supplied \\
+36 & 959 & 1.0\% & 1.9\% & 1.5\% & 1.81 & 1.41 & 98 & Acquisition
+engine \\
+18 & 865 & 0.9\% & 2.0\% & 4.3\% & 2.13 & 4.58 & 249 & Acquisition
+engine \\
+25 & 855 & 0.9\% & 1.4\% & 1.4\% & 1.48 & 1.47 & 104 & Acquisition
+engine \\
+30 & 852 & 0.9\% & 1.5\% & 1.3\% & 1.62 & 1.43 & 115 & Acquisition
+engine \\
+12 & 820 & 0.9\% & 1.5\% & 1.3\% & 1.66 & 1.53 & 180 & Acquisition
+engine \\
+20 & 707 & 0.8\% & 1.9\% & 2.8\% & 2.44 & 3.74 & 240 & Acquisition
+engine \\
+41 & 642 & 0.7\% & 0.7\% & 0.9\% & 0.96 & 1.33 & 110 & Over-served -
+promotion waste \\
+8 & 626 & 0.7\% & 0.5\% & 0.4\% & 0.81 & 0.61 & 42 & Habit anchor -
+under-supplied \\
+31 & 445 & 0.5\% & 0.8\% & 0.7\% & 1.66 & 1.50 & 93 & Acquisition
+engine \\
+17 & 383 & 0.4\% & 1.0\% & 0.1\% & 2.47 & 0.36 & 146 & Acquisition
+engine \\
+32 & 325 & 0.3\% & 0.8\% & 2.0\% & 2.18 & 5.72 & 315 & Acquisition
+engine \\
+\end{longtable}
+}
+
+\textbf{Reading the map.}
+
+\emph{Top half --- acquisition engines (subsectors 27, 18, 20, 32, 36,
+12, 30, 25, 31, 21, 17, 1).} Subsector 27 is the clearest case: 4.4\% of
+incumbent volume but \textbf{9.6\% of novelty volume (NCI 2.16)},
+sitting on 15.4\% of the merchant base (COV 3.49). Cardholders are
+already willing to try new merchants here, and there is ample merchant
+supply to promote with. Average ticket R\$175. This is where a discovery
+offer converts, and where the supply side can absorb the traffic.
+
+\emph{Bottom left --- habit anchors, under-supplied (33, 29, 19, 34, 37,
+16, 15, 7, 8, 39).} Subsector 33 is the network's second largest at
+18.6\% of volume, but an \textbf{NCI of 0.42} --- cardholders go where
+they always go. Discounting here buys transactions that were happening
+anyway. Its coverage index of 0.50 says demand outruns merchant supply,
+so the right intervention is \textbf{merchant recruitment, not
+cardholder discounting.}
+
+\emph{Bottom right --- over-served (subsector 41).} More merchant supply
+than either demand or discovery justifies. A small quadrant on this
+data, but it is the one place where promotion spend is waste by
+construction.
+
+\emph{Subsector 37 deserves a line of its own.} At 18.8\% of
+transactions it is the single largest, with an NCI of 1.12 --- just
+below the discovery threshold --- and a R\$49 average ticket. It is the
+workhorse of the network: the place to defend top-of-wallet position,
+not the place to chase acquisition.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Recommendations for Q4}\label{recommendations-for-q4}
+
+\textbf{1. Stop discounting habit. Redirect that budget to discovery.}
+Subsectors 33, 29, 19 and 34 together are \textbf{50.8\% of
+transactions} and have novelty capture indices below 0.9. Money spent on
+offers here is subsidising purchases that would have happened. Moving
+even a third of that budget into the acquisition-engine quadrant (27,
+18, 20, 32, 36) targets the same cardholders at the moment they are
+actually willing to change behaviour.
+
+\textbf{2. Promote down the pyramid, not up it.} Tier A merchants are
+0.3\% of the base and 26\% of incumbent volume, but only 17\% of
+new-merchant volume. Set a floor: a defined share of Q4 promotional
+slots reserved for \textbf{accelerating tier C and D merchants}, which
+is where new relationships actually form, and where a merchant will
+value the traffic enough to fund part of the offer.
+
+\textbf{3. Fix the \texttt{category\_1\ =\ Y} decline problem before
+spending.} That flag carries \textbf{4.3× the odds of a decline} and
+covers 6.1\% of volume. Promoting into a population we then turn away
+costs money twice. This is a one-week question for the risk team and it
+should be answered before the Q4 calendar is locked.
+
+\textbf{4. Use instalments in exactly one place: the first visit.}
+Instalment use nearly doubles at new merchants. An instalment-linked
+offer at a \emph{known} merchant is fighting the network's nature; at a
+first visit it works with it. This is the one instalment play the data
+supports.
+
+\textbf{5. Recruit merchants where demand outruns supply.} State 9 (39\%
+of demand, 28\% of supply) and subsector 33 (18.6\% of demand, coverage
+index 0.50) are merchant-acquisition problems wearing a promotions
+costume. State 22 --- high novelty appetite, thin supply --- is the
+cleanest greenfield in the network.
+
+\textbf{6. Segment the send.} Core Everyday (72\% of spend) needs
+\textbf{retention and top-of-wallet defence}, not discounts. Big-Ticket
+Narrow (43 days since last transaction) needs \textbf{reactivation}.
+Explorer Light is the natural \textbf{discovery audience}. Occasional
+--- a third of cards and 8.7\% of spend --- should be the last call on
+the budget, not the first.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{What this analysis cannot tell
+you}\label{what-this-analysis-cannot-tell-you}
+
+Stating the limits is part of the answer.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{No card-level loyalty file.} \texttt{train.csv} --- with
+  \texttt{first\_active\_month} and the loyalty \texttt{target} --- was
+  not in the export. We rebuilt tenure and value from observed
+  behaviour, so we can describe what loyal behaviour \emph{looks like}
+  but cannot explain the score the business already computes.
+\item
+  \textbf{The two windows are different card samples.} 16 cards in
+  common, so every novelty finding is a portfolio-level comparison, not
+  a within-card before/after. It supports ``where discovery happens'';
+  it does not support ``this promotion caused this card to switch''.
+\item
+  \textbf{463 cards is a small panel.} Portfolio-level conclusions on
+  instalment mix, ticket size and concentration are stable;
+  state-by-subsector cells with a few hundred transactions are
+  indicative only.
+\item
+  \textbf{Everything is anonymised.} We can say subsector 27 behaves
+  like a discovery category and subsector 33 like a habit category.
+  Someone inside Elo has to put the names on them before this becomes a
+  media plan.
+\item
+  \textbf{The currency transform is empirically recovered, not
+  supplied.} It is validated by the shape of the resulting distribution
+  --- no negative amounts, an economically coherent median --- but it
+  should be confirmed against one known settlement record before any
+  figure is quoted externally.
+\item
+  \textbf{Correlation, not causation.} The targeting map ranks where
+  discovery already happens. Proving a promotion \emph{causes} it needs
+  a holdout test, which is the natural next piece of work.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Major learnings}\label{major-learnings}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Audit before you analyse.} 90\% of the largest file was empty
+  padding and a hundred records were about to hijack every average.
+  Neither was flagged. The first hour of data work protected every
+  number that followed.
+\item
+  \textbf{Make the data speak the Board's language.} Recovering the
+  currency transform changed nothing statistically and changed
+  everything about whether the analysis could be presented. ``The median
+  ticket is −0.69'' is not a finding; ``the median ticket is R\$35'' is
+  a strategy.
+\item
+  \textbf{The identity question was answered by a simple frequency
+  table.} 96\% single-payment settled what kind of network Elo is. No
+  model was required --- only asking the right question of the right
+  column.
+\item
+  \textbf{The file everyone ignores was the one that mattered.} The
+  novelty window is the only view of a \emph{new} relationship forming,
+  which is precisely what a promotion is buying. Analysing it against
+  the incumbent window turned a description into a recommendation.
+\item
+  \textbf{Ratios travel further than totals.} Raw volume said ``promote
+  subsector 33, it is huge''. Volume \emph{relative to} novelty and
+  supply said the opposite. Two constructed indices changed the answer.
+\item
+  \textbf{State the limits in the room.} Naming the 16-card overlap up
+  front made the rest of the analysis credible rather than fragile.
+\end{itemize}
+
+\begin{verbatim}
+## Analysis run: 28 Sep 2026 10:32 | R version 4.6.1 (2026-06-24)
+\end{verbatim}
+
+\end{document}
